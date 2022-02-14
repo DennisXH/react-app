@@ -5,7 +5,7 @@ import {
   COMPANY_DETAIL_REQUEST,
   COMPANY_DETAIL_SUCCESS,
   COMPANY_DETAIL_UPDATE_REQUEST,
-  COMPANY_DETAIL_UPDATE_SUCCESS,
+  COMPANY_DETAIL_UPDATE_SUCCESS, CREATE_COMPANY_REQUEST, CREATE_COMPANY_SUCCESS, CREATE_COMPANY_ERROR,
 } from "../actions/company";
 
 export function setCompanyListRequest(state) {
@@ -44,10 +44,35 @@ export function setCompanyDetailSuccess(state, action) {
   });
 }
 
+export function setCompanyCreateRequest(state) {
+  return state.merge({
+    isFetching: true,
+  })
+}
+
+export function setCompanyCreateSuccess(state, action) {
+  const {payload} = action;
+
+  return state.merge({
+    company: payload,
+    isFetching: false,
+  });
+}
+
+export function setCompanyCreateError(state, action) {
+  const {payload} = action;
+
+  return state.merge({
+    error: payload,
+    isFetching: false,
+  });
+}
+
 export default function (state = Map({
   companyList: List(),
   company: null,
   isFetching: false,
+  error: null,
 }), action) {
   switch (action.type) {
     case COMPANY_LIST_REQUEST:
@@ -61,6 +86,12 @@ export default function (state = Map({
       return setCompanyDetailSuccess(state, action);
     case COMPANY_DETAIL_UPDATE_SUCCESS:
       return updateCompanyDetailSuccess(state);
+    case CREATE_COMPANY_REQUEST:
+      return setCompanyCreateRequest(state);
+    case CREATE_COMPANY_SUCCESS:
+      return setCompanyCreateSuccess(state, action);
+    case CREATE_COMPANY_ERROR:
+      return setCompanyCreateError(state, action);
     default:
       return state;
   }

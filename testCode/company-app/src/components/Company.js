@@ -14,7 +14,7 @@ export class Company extends Component {
     return (
       <>
         <Row><Col>
-          <Card>
+          <Card key={id}>
             <Card.Header><Link to={`/companies/${id}`}>{name}</Link></Card.Header>
             <Card.Body>
               <Form>

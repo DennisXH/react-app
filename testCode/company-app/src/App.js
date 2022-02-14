@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import './App.css';
 import CompanyPage from './pages/CompanyPage'
 import CompanyEditPage from './pages/CompanyEditPage'
+import CompanyCreatePage from "./pages/CompanyCreatePage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <h1>Welcome to Company Page</h1>
       <Switch>
         <Route exact path="/companies"><CompanyPage /></Route>
+        <Route exact path="/companies/create"><CompanyCreatePage /></Route>
         <Route exact path="/companies/:companyId"><CompanyEditPage /></Route>
       </Switch>
     </div>

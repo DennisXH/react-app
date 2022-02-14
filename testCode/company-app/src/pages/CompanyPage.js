@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
+import React, {Component, useCallback} from 'react';
 import {connect} from 'react-redux';
-import {Card, Col, Container, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, Row} from "react-bootstrap";
 import Company from "../components/Company";
 import {getCompanyList} from "../actions/company";
 import { withRouter } from "react-router";
+import {useHistory} from 'react-router-dom';
 
 export class CompanyPage extends Component {
   componentDidMount() {
@@ -13,11 +14,19 @@ export class CompanyPage extends Component {
 
   render() {
     const {companyList} = this.props;
-
+    const handleCreateButtonOnClick = () => window.location.href = "/companies/create";
     return (
       <Container fluid="sm"><Row><Col>
         <Card>
-          <Card.Header>Companies</Card.Header>
+          <Card.Header>
+            <Row>
+              <Col sm={4}><div className="d-flex">
+                <div style={{lineHeight: '50px'}}><b>Companies</b></div>
+                <div className="m-2"><Button onClick={handleCreateButtonOnClick}>Create</Button></div>
+              </div></Col>
+            </Row>
+
+          </Card.Header>
           <Card.Body>
             {companyList.map((company, index) => {
               return <Company

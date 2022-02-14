@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import {getCompanyDetail, updateCompanyDetail} from "../actions/company";
 import PropTypes from "prop-types";
-import {Col, Container, Form, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import CompanyForm from "../components/CompanyForm";
 
 export class CompanyEditPage extends Component {
@@ -15,6 +15,7 @@ export class CompanyEditPage extends Component {
       revenue: null,
       phone: ''
     }
+    this.handleCompanyUpdate = this.handleCompanyUpdate.bind(this);
   }
 
   async componentDidMount() {
@@ -32,8 +33,6 @@ export class CompanyEditPage extends Component {
       revenue: this.props.company.revenue,
       phone: this.props.company.phone
     });
-
-    this.handleCompanyUpdate = this.handleCompanyUpdate.bind(this);
   }
 
   handleCompanyUpdate = (form) => {
@@ -61,6 +60,7 @@ export class CompanyEditPage extends Component {
       <Container fluid="sm">
         <CompanyForm
           id={match.params.companyId}
+          title={`Update Company`}
           name={name}
           address={address}
           revenue={revenue}

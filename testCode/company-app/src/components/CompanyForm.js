@@ -5,6 +5,7 @@ export class CompanyForm extends Component {
   render() {
     const {
       id,
+      title,
       name,
       address,
       revenue,
@@ -15,7 +16,7 @@ export class CompanyForm extends Component {
       <>
         <Row><Col>
           <Card>
-            <Card.Header><b>{name}</b></Card.Header>
+            <Card.Header><b>{title}</b></Card.Header>
             <Card.Body>
               <Form onSubmit={(e) => {
                 e.preventDefault()
@@ -54,7 +55,7 @@ export class CompanyForm extends Component {
                   </Col>
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                  Update
+                  Submit
                 </Button>
               </Form>
             </Card.Body>
