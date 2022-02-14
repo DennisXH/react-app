@@ -1,14 +1,14 @@
 import React from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
-import Company from './components/Company'
+import CompanyPage from './pages/CompanyPage'
 
 function App() {
   return (
     <div className="App">
       <h1>Welcome to React Router!</h1>
       <Routes>
-        <Route path="/" element={<Company />} />
+        <Route path="/" element={<CompanyPage />} />
         <Route path="about" element={<About />} />
       </Routes>
     </div>
