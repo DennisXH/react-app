@@ -1,35 +1,19 @@
 import React from 'react';
-import { Routes, Route, Link } from "react-router-dom";
+import {Route, Switch} from 'react-router-dom';
 import './App.css';
 import CompanyPage from './pages/CompanyPage'
+import CompanyEditPage from './pages/CompanyEditPage'
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to React Router!</h1>
-      <Routes>
-        <Route path="/" element={<CompanyPage />} />
-        <Route path="about" element={<About />} />
-      </Routes>
+      <h1>Welcome to Company Page</h1>
+      <Switch>
+        <Route exact path="/companies"><CompanyPage /></Route>
+        <Route exact path="/companies/:companyId"><CompanyEditPage /></Route>
+      </Switch>
     </div>
   );
 }
 
 export default App;
-
-function About() {
-  return (
-    <>
-      <main>
-        <h2>Who are we?</h2>
-        <p>
-          That feels like an existential question, don't you
-          think?
-        </p>
-      </main>
-      <nav>
-        <Link to="/">Home</Link>
-      </nav>
-    </>
-  );
-}

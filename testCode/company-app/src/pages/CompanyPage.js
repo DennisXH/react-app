@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Card, Col, Container, Row} from "react-bootstrap";
 import Company from "../components/Company";
 import {getCompanyList} from "../actions/companyList";
+import { withRouter } from "react-router";
 
 export class CompanyPage extends Component {
   componentDidMount() {
@@ -12,7 +13,6 @@ export class CompanyPage extends Component {
 
   render() {
     const {companyList} = this.props;
-    console.log(companyList);
 
     return (
       <Container fluid="sm"><Row><Col>
@@ -20,7 +20,13 @@ export class CompanyPage extends Component {
           <Card.Header>Companies</Card.Header>
           <Card.Body>
             {companyList.map((company, index) => {
-              return <p>{company.name}</p>
+              return <Company
+                id={company._id}
+                name={company.name}
+                address={company.address}
+                revenue={company.revenue}
+                phone={company.phone}
+              />
             })}
           </Card.Body>
         </Card>
@@ -53,4 +59,4 @@ const mapDispatchToProps = function (dispatch) {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CompanyPage);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CompanyPage));
