@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
-import companyList from "./companyList";
+import company from "./company";
 
 export default combineReducers({
-  companyList,
+  company,
 });

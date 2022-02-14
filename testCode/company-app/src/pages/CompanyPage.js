@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Card, Col, Container, Row} from "react-bootstrap";
 import Company from "../components/Company";
-import {getCompanyList} from "../actions/companyList";
+import {getCompanyList} from "../actions/company";
 import { withRouter } from "react-router";
 
 export class CompanyPage extends Component {
@@ -43,11 +43,11 @@ CompanyPage.propTypes = {
 
 const mapStateToProps = function (state) {
   const {
-    companyList,
+    company,
   } = state;
   return {
-    isFetching: companyList.get('isFetching'),
-    companyList: companyList.get('companyList').toJS(),
+    isFetching: company.get('isFetching'),
+    companyList: company.get('companyList').toJS(),
   };
 };
 
@@ -59,4 +59,7 @@ const mapDispatchToProps = function (dispatch) {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CompanyPage));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(CompanyPage));
