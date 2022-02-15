@@ -3,10 +3,12 @@ import {Button, Card, Col, Form, Row} from "react-bootstrap";
 
 export class PersonForm extends Component {
   render() {
-    const {id,
+    const {
+      id,
       title,
       name,
       email,
+      companyId,
       companyList,
       onChange
     } = this.props
@@ -42,13 +44,13 @@ export class PersonForm extends Component {
                     Company
                   </Form.Label>
                   <Col sm="10">
-                    <Form.Select>
+                    {companyId && <Form.Control as="select" defaultValue={companyId}>
                       {
                         companyList.map((company, index) => {
                           return <option key={index} value={company._id}>{company.name}</option>
                         })
                       }
-                    </Form.Select>
+                    </Form.Control>}
                   </Col>
                 </Form.Group>
                 <Button variant="primary" type="submit">

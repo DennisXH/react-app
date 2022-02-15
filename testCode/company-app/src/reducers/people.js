@@ -1,9 +1,9 @@
 import {List, Map} from "immutable";
 import {
   CREATE_PERSON_REQUEST,
-  CREATE_PERSON_SUCCESS,
+  CREATE_PERSON_SUCCESS, GET_PERSON_REQUEST, GET_PERSON_SUCCESS,
   PEOPLE_LIST_REQUEST,
-  PEOPLE_LIST_SUCCESS
+  PEOPLE_LIST_SUCCESS, UPDATE_PERSON_REQUEST, UPDATE_PERSON_SUCCESS
 } from "../actions/people";
 
 export function setPeopleListRequest(state) {
@@ -36,6 +36,36 @@ export function setPersonSuccess(state, action) {
   });
 }
 
+export function getPersonRequest(state) {
+  return state.merge({
+    isFetching: true,
+  })
+}
+
+export function getPersonSuccess(state, action) {
+  const {payload} = action;
+
+  return state.merge({
+    person: payload,
+    isFetching: false,
+  });
+}
+
+export function updatePersonRequest(state) {
+  return state.merge({
+    isFetching: true,
+  })
+}
+
+export function updatePersonSuccess(state, action) {
+  const {payload} = action;
+
+  return state.merge({
+    person: payload,
+    isFetching: false,
+  });
+}
+
 export default function (state = Map({
   peopleList: List(),
   person: null,
@@ -52,6 +82,14 @@ export default function (state = Map({
       return setPersonRequest(state);
     case CREATE_PERSON_SUCCESS:
       return setPersonSuccess(state, action);
+    case GET_PERSON_REQUEST:
+      return getPersonRequest(state);
+    case GET_PERSON_SUCCESS:
+      return getPersonSuccess(state, action);
+    case UPDATE_PERSON_REQUEST:
+      return updatePersonRequest(state);
+    case UPDATE_PERSON_SUCCESS:
+      return updatePersonRequest(state, action);
     default:
       return state;
   }

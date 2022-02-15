@@ -40,6 +40,7 @@ export class PersonCreatePage extends Component {
 
 PersonCreatePage.propTypes = {
   dispatchCreatePerson: PropTypes.func.isRequired,
+  dispatchGetCompanyList: PropTypes.func.isRequired,
   companyList: PropTypes.object.isRequired,
   isFetching: PropTypes.bool.isRequired,
 }

@@ -22,7 +22,7 @@ export class PeoplePage extends Component {
             {
               peopleList.map((person, index) => {
                 return <li key={index}>
-                  <a href={`/companies/${company._id}/people/${person._id}`}>{person.name}</a>
+                  <a href={`/people/${person._id}`}>{person.name}</a>
                   </li>
               })
             }

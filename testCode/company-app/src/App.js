@@ -6,6 +6,7 @@ import CompanyEditPage from './pages/CompanyEditPage'
 import CompanyCreatePage from "./pages/CompanyCreatePage";
 import PeoplePage from "./pages/PeoplePage";
 import PersonCreatePage from "./pages/PersonCreatePage";
+import PersonEditPage from "./pages/PersonEditPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/companies/:companyId"><CompanyEditPage /></Route>
         <Route exact path="/companies/:companyId/people"><PeoplePage /></Route>
         <Route exact path="/people/create"><PersonCreatePage /></Route>
+        <Route exact path="/people/:personId"><PersonEditPage /></Route>
       </Switch>
     </div>
   );
