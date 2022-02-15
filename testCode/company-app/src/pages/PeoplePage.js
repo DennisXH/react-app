@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
-import {Card, Col, Container, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, Row} from "react-bootstrap";
 import {getPeopleList} from "../actions/people";
 import PropTypes from "prop-types";
 import {getCompanyDetail} from "../actions/company";
@@ -13,11 +13,14 @@ export class PeoplePage extends Component {
 
   render() {
     const {company, peopleList} = this.props;
-
+    const handleCreatePersonButtonOnClick = () => window.location.href = "/people/create";
     return (
       <Container fluid="sm"><Row><Col>
         <Card>
-          {company && <Card.Header><div>People at {company.name}</div></Card.Header>}
+          {company && <Card.Header><Row><Col sm={6}><div className="d-flex">
+            <div style={{lineHeight: '50px'}}><b>People at {company.name}</b></div>
+            <div className="m-2"><Button onClick={handleCreatePersonButtonOnClick}>Create Person</Button></div>
+          </div></Col></Row></Card.Header>}
           <Card.Body>
             {
               peopleList.map((person, index) => {

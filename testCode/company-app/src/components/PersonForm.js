@@ -10,7 +10,8 @@ export class PersonForm extends Component {
       email,
       companyId,
       companyList,
-      onChange
+      onChange,
+      onDelete,
     } = this.props
 
     return (
@@ -44,7 +45,7 @@ export class PersonForm extends Component {
                     Company
                   </Form.Label>
                   <Col sm="10">
-                    {companyId && <Form.Control as="select" defaultValue={companyId}>
+                    {(!id || companyId) && <Form.Control as="select" defaultValue={companyId}>
                       {
                         companyList.map((company, index) => {
                           return <option key={index} value={company._id}>{company.name}</option>
@@ -56,7 +57,10 @@ export class PersonForm extends Component {
                 <Button variant="primary" type="submit">
                   Submit
                 </Button>
-                {id && <Button variant="danger" type="submit">
+                {id && <Button variant="danger" type="button" onClick={(e) => {
+                  e.preventDefault()
+                  onDelete(id)
+                }}>
                   Delete
                 </Button>}
               </Form>

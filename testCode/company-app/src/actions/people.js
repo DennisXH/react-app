@@ -16,6 +16,10 @@ export const GET_PERSON_REQUEST = 'GET_PERSON_REQUEST';
 export const GET_PERSON_SUCCESS = 'GET_PERSON_SUCCESS';
 export const GET_PERSON_ERROR = 'GET_PERSON_ERROR';
 
+export const DELETE_PERSON_REQUEST = 'DELETE_PERSON_REQUEST';
+export const DELETE_PERSON_SUCCESS = 'DELETE_PERSON_SUCCESS';
+export const DELETE_PERSON_ERROR = 'DELETE_PERSON_ERROR';
+
 export function getPeopleListRequest() {
   return {
     type: PEOPLE_LIST_REQUEST,
@@ -91,7 +95,27 @@ export function updatePersonSuccess(data) {
 export function updatePersonError(error) {
   return {
     payload: error.response,
-    type: UPDATE_PERSON_ERROR,
+    type: DELETE_PERSON_ERROR,
+  };
+}
+
+export function deletePersonRequest() {
+  return {
+    type: DELETE_PERSON_REQUEST,
+  };
+}
+
+export function deletePersonSuccess(data) {
+  return {
+    payload: data,
+    type: DELETE_PERSON_SUCCESS,
+  };
+}
+
+export function deletePersonError(error) {
+  return {
+    payload: error.response,
+    type: DELETE_PERSON_ERROR,
   };
 }
 
@@ -135,5 +159,15 @@ export function updatePerson(personId, data) {
         dispatch(getPerson(personId))
       })
       .catch((error) => dispatch(updatePersonError(error)));
+  };
+}
+
+export function deletePerson(personId) {
+  return function (dispatch) {
+    dispatch(deletePersonRequest());
+
+    return axios.delete(`http://localhost:3001/person/${personId}`)
+      .then(({data}) => dispatch(deletePersonSuccess(data)))
+      .catch((error) => dispatch(deletePersonError(error)));
   };
 }

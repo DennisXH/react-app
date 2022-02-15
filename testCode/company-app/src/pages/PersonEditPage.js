@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
-import {getPerson, updatePerson} from "../actions/people";
+import {getPerson, updatePerson, deletePerson} from "../actions/people";
 import PropTypes from "prop-types";
 import {Container} from "react-bootstrap";
 import PersonForm from "../components/PersonForm";
@@ -16,6 +16,7 @@ export class PersonEditPage extends Component {
       companyId: null,
     }
     this.handlePersonUpdate = this.handlePersonUpdate.bind(this);
+    this.handlePersonDelete = this.handlePersonDelete.bind(this);
     this.props.dispatchGetCompanyList();
   }
 
@@ -45,6 +46,15 @@ export class PersonEditPage extends Component {
     dispatchUpdatePerson(match.params.personId, data);
   }
 
+  handlePersonDelete = async () => {
+    const {
+      dispatchDeletePerson,
+      match
+    } = this.props;
+    await dispatchDeletePerson(match.params.personId)
+    window.location.href = `/companies/${this.state.companyId}/people`
+  }
+
   render() {
     const {match} = this.props;
     const {
@@ -62,6 +72,7 @@ export class PersonEditPage extends Component {
           companyId={companyId}
           companyList={this.props.companyList}
           onChange={this.handlePersonUpdate}
+          onDelete={this.handlePersonDelete}
         />
       </Container>
     )
@@ -100,6 +111,9 @@ const mapDispatchToProps = function (dispatch) {
     },
     dispatchUpdatePerson: async (...args) => {
       await dispatch(updatePerson(...args));
+    },
+    dispatchDeletePerson: async (...args) => {
+      await dispatch(deletePerson(...args));
     },
   }
 };
