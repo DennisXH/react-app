@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import {createCompany} from "../actions/company";
 import PropTypes from "prop-types";
-import {Alert, Col, Container, Form, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import CompanyForm from "../components/CompanyForm";
 
 export class CompanyCreatePage extends Component {

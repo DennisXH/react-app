@@ -15,14 +15,16 @@ export class CompanyPage extends Component {
   render() {
     const {companyList} = this.props;
     const handleCreateButtonOnClick = () => window.location.href = "/companies/create";
+    const handleCreatePersonButtonOnClick = () => window.location.href = "/people/create";
     return (
       <Container fluid="sm"><Row><Col>
         <Card>
           <Card.Header>
             <Row>
-              <Col sm={4}><div className="d-flex">
+              <Col sm={7}><div className="d-flex">
                 <div style={{lineHeight: '50px'}}><b>Companies</b></div>
-                <div className="m-2"><Button onClick={handleCreateButtonOnClick}>Create</Button></div>
+                <div className="m-2"><Button onClick={handleCreateButtonOnClick}>Create Company</Button></div>
+                <div className="m-2"><Button onClick={handleCreatePersonButtonOnClick}>Create Person</Button></div>
               </div></Col>
             </Row>
 

@@ -1,6 +1,10 @@
 import {List, Map} from "immutable";
-import {PEOPLE_LIST_REQUEST, PEOPLE_LIST_SUCCESS} from "../actions/people";
-
+import {
+  CREATE_PERSON_REQUEST,
+  CREATE_PERSON_SUCCESS,
+  PEOPLE_LIST_REQUEST,
+  PEOPLE_LIST_SUCCESS
+} from "../actions/people";
 
 export function setPeopleListRequest(state) {
   return state.merge({
@@ -16,6 +20,22 @@ export function setPeopleListSuccess(state, action) {
     isFetching: false,
   });
 }
+
+export function setPersonRequest(state) {
+  return state.merge({
+    isFetching: true,
+  })
+}
+
+export function setPersonSuccess(state, action) {
+  const {payload} = action;
+
+  return state.merge({
+    person: payload,
+    isFetching: false,
+  });
+}
+
 export default function (state = Map({
   peopleList: List(),
   person: null,
@@ -28,6 +48,10 @@ export default function (state = Map({
       return setPeopleListRequest(state)
     case PEOPLE_LIST_SUCCESS:
       return setPeopleListSuccess(state, action)
+    case CREATE_PERSON_REQUEST:
+      return setPersonRequest(state);
+    case CREATE_PERSON_SUCCESS:
+      return setPersonSuccess(state, action);
     default:
       return state;
   }
