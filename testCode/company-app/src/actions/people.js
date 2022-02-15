@@ -95,7 +95,7 @@ export function updatePersonSuccess(data) {
 export function updatePersonError(error) {
   return {
     payload: error.response,
-    type: DELETE_PERSON_ERROR,
+    type: UPDATE_PERSON_ERROR,
   };
 }
 

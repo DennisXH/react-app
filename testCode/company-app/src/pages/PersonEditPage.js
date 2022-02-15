@@ -83,6 +83,7 @@ PersonEditPage.propTypes = {
   dispatchUpdatePerson: PropTypes.func.isRequired,
   dispatchGetCompanyList: PropTypes.func.isRequired,
   dispatchGetPerson: PropTypes.func.isRequired,
+  dispatchDeletePerson: PropTypes.func.isRequired,
   companyList: PropTypes.array,
   person: PropTypes.object,
   isFetching: PropTypes.bool.isRequired,
