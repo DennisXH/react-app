@@ -59,6 +59,7 @@ export class CompanyForm extends Component {
                 </Button>
               </Form>
             </Card.Body>
+            {id && <Card.Footer><a href={`/companies/${id}/people`}>People in {name}</a></Card.Footer>}
           </Card>
         </Col></Row>
       </>

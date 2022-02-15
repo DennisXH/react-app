@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import React, {Component, useCallback} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Button, Card, Col, Container, Row} from "react-bootstrap";
 import Company from "../components/Company";
 import {getCompanyList} from "../actions/company";
 import { withRouter } from "react-router";
-import {useHistory} from 'react-router-dom';
 
 export class CompanyPage extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     this.props.dispatchGetCompanyList();
   }
 
@@ -30,6 +30,7 @@ export class CompanyPage extends Component {
           <Card.Body>
             {companyList.map((company, index) => {
               return <Company
+                key={index}
                 id={company._id}
                 name={company.name}
                 address={company.address}
