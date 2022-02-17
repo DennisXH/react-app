@@ -1,4 +1,4 @@
-# SigFig take home test instructions
+# Test Server
 
 ## Pre reqs
 Install brew, node, npm & mongo. On OSX the commands below should work.
@@ -31,9 +31,6 @@ npm run server
 ```
 * Navigate to http://localhost:3001/testCode/index.html
 * Do you work within the testCode directory
-
-## Submit your work
-Submit your testCode directory, and anything else you've built as a zip file back to your recruiter. If running your solution will require the grader to do anything beyond dropping your testCode directory into a running node server, let us know.
 
 
 ## Questions/troubleshooting setup issues

@@ -1,6 +1,6 @@
 {
-  "name": "Sigfig_FE_RPT",
-  "description": "Sigfig Front end programming test",
+  "name": "API Server",
+  "description": "mongo test server",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
