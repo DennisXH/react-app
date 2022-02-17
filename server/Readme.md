@@ -1,5 +1,8 @@
 # Test Server
 
+##API Doc
+http://localhost:3001/swagger
+
 ## Pre reqs
 Install brew, node, npm & mongo. On OSX the commands below should work.
 
@@ -29,9 +32,3 @@ npm run start
 npm run mongo
 npm run server
 ```
-* Navigate to http://localhost:3001/testCode/index.html
-* Do you work within the testCode directory
-
-
-## Questions/troubleshooting setup issues
-Ping your recruiter and they'll help you get it working

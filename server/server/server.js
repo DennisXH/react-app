@@ -39,7 +39,6 @@ app.swaggerSpec = swaggerJSDoc(options);
 app.configure(function() {
 	app.use(express.bodyParser());
 	app.use('/swagger', express.static('../swagger'));
-	app.use('/testCode', express.static('../testCode'));
 
 	//loosen up CORS for people building their own react node server for their html
     app.use(function(req, res, next) {

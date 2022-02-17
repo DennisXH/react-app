@@ -1,8 +1,7 @@
 {
-  "name": "API Server",
-  "description": "mongo test server",
+  "name": "api-server",
+  "description": "mongo db api server",
   "version": "1.0.0",
-  "private": true,
   "dependencies": {
     "express": "3.x",
     "mongodb": "^3.6.4",
