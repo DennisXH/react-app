@@ -1,6 +1,6 @@
-#React Redux Example App
+# React Redux Example App
 
-##Expected functionality:
+## Expected functionality:
 - Show a list of companies `/companies`
 - Show the details/full record of an existing company `/companies/id`
 - Create a new company `/companies/create`
@@ -15,10 +15,10 @@
 ### Available Scripts
 
 
-####To install all dependencies
+#### To install all dependencies
 `npm install`
 
-####Runs the app in the development mode.<br />
+#### Runs the app in the development mode.<br />
 `npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -26,9 +26,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-##API test server
+## API test server
 
-###API Doc
+### API Doc
 http://localhost:3001/swagger
 
 ### Pre server reqs
@@ -48,7 +48,7 @@ Setup MongoDb data directory if folder doesn't exist
 mkdir -p data/db
 ```
 
-####Windows users run these two commands
+#### Windows users run these two commands
 ```
 npm run mongo
 npm run server
