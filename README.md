@@ -12,30 +12,44 @@
 - Create a new person, associating them to an existing company `/people/create`
 - Bonus: make the site responsive
 
-##API test server
-Please go to /server/Readme.md
-
 ### Available Scripts
 
-In the project directory, you can run:
 
-#### `npm install`
-To install all dependencies
+####To install all dependencies
+`npm install`
 
-#### `npm start`
+####Runs the app in the development mode.<br />
+`npm start`
 
-Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-#### `npm run build`
+##API test server
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###API Doc
+http://localhost:3001/swagger
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Pre server reqs
+Install brew, node, npm & mongo. On OSX the commands below should work.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor #fix all issues
+brew update
+brew install node
+brew tap mongodb/brew
+brew install mongodb-community
+```
+
+Setup MongoDb data directory if folder doesn't exist
+```
+mkdir -p data/db
+```
+
+####Windows users run these two commands
+```
+npm run mongo
+npm run server
+```
