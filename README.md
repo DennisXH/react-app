@@ -12,6 +12,9 @@
 - Create a new person, associating them to an existing company `/people/create`
 - Bonus: make the site responsive
 
+##API test server
+Please go to /server/Readme.md
+
 ### Available Scripts
 
 In the project directory, you can run:
